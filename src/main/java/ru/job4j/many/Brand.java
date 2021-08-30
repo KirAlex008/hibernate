@@ -54,12 +54,16 @@ public class Brand {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Brand brand = (Brand) o;
-        return id == brand.id &&
-                name.equals(brand.name) &&
-                Objects.equals(models, brand.models);
+        return id == brand.id
+                && name.equals(brand.name)
+                && Objects.equals(models, brand.models);
     }
 
     @Override
