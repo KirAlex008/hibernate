@@ -31,8 +31,15 @@ create table book (
                       name varchar(2000)
 );
 
-create table author_book (
-                             id serial primary key,
-                             author_id int references author(id),
-                             book_id int references book(id)
-)
+create table tasks (
+                      id serial primary key,
+                      description varchar(2000),
+                      category_id int references categories(id)
+);
+
+create table categories (
+                       id serial primary key,
+                       name varchar(2000)
+);
+
+
