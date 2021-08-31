@@ -39,11 +39,15 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Book book = (Book) o;
-        return id == book.id &&
-                name.equals(book.name);
+        return id == book.id
+                && name.equals(book.name);
     }
 
     @Override
