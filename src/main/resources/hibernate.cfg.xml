@@ -12,7 +12,8 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+       <!-- <property name="hibernate.hbm2ddl.auto">update</property>-->
+        <property name="hibernate.jdbc.time_zone">Asia/Tokyo</property>
 
         <!--<mapping class="ru.job4j.toone.Role" />
         <mapping class="ru.job4j.toone.User" />-->
@@ -24,6 +25,14 @@
         <mapping class="ru.job4j.lazy.Category" />
         <mapping class="ru.job4j.lazy.Model" />
         <mapping class="ru.job4j.lazy.Brand" />
+        <mapping class="ru.job4j.hql.Student" />
+        <mapping class="ru.job4j.hql.Account" />
+        <mapping class="ru.job4j.hql.Books" />
+        <mapping class="ru.job4j.date.Product" />
+        <mapping class="ru.job4j.connections.Car" />
+        <mapping class="ru.job4j.connections.Engine" />
+        <mapping class="ru.job4j.connections.Driver" />
+
 
     </session-factory>
 </hibernate-configuration>

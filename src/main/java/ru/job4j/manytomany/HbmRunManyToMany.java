@@ -15,6 +15,7 @@ public class HbmRunManyToMany {
             Session session = sf.openSession();
             session.beginTransaction();
             Author author1 = Author.of("name_1");
+            System.out.println(author1.getId());
             Author author2 = Author.of("name_2");
             Author author3 = Author.of("name_3");
             Book book1 = Book.of("Book_1");

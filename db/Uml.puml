@@ -1,0 +1,31 @@
+@startuml
+entity "engine" {
+id: serial
+name: varchar(255)
+..
+}
+
+entity "car" {
+id: serial
+name: varchar(255)
+engine_id: int
+..
+}
+
+entity "driver" {
+id: serial
+name: varchar(255)
+..
+}
+
+entity "history_owner" {
+id: serial
+name: varchar(255)
+driver_id: int
+car_id: int
+..
+}
+engine::id "one" <-- "one" car::engine_id
+history_owner::driver_id "many" --> "one" driver::id
+history_owner::car_id "many" --> "one" car::id
+@enduml

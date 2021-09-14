@@ -42,4 +42,16 @@ create table categories (
                        name varchar(2000)
 );
 
+create table brand (
+                       id serial primary key,
+                       name varchar(2000)
+);
+
+create table model (
+                       id serial primary key,
+                       name varchar(2000),
+                       brand_id int references brand(id)
+);
+
+
 
