@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "car")
+@Table
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,15 @@ public class Car {
             inverseJoinColumns = { @JoinColumn(name = "car_id",
                     nullable = false, updatable = false) })
     private Set<Driver> drivers = new HashSet<Driver>();
+
+    public Car() {
+        }
+
     public Set<Driver> getDrivers() {
         return drivers;
     }
 
     public void addDriver(Driver d) {
-        System.out.println("Good");
         this.drivers.add(d);
     }
 
@@ -64,22 +67,14 @@ public class Car {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(id, car.id)
-                && Objects.equals(name, car.name)
-                && Objects.equals(engine, car.engine);
+        return id == car.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, engine);
+        return Objects.hash(id);
     }
-
-
 }

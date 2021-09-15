@@ -19,21 +19,12 @@ public class Tester {
             Engine engine1 = Engine.of("BMW_V16");
             session.save(engine1);
             System.out.println(engine1.getId());
-
-            /*Engine engine1 = create(Engine.of("BMW_V16"), sf);
-            Car car1 = create(Car.of("BMW X3", engine1), sf);
-            for (Car car : findAll(Car.class, sf)) {
-                System.out.println(car.getName() + " " + car.getEngine().getName());
-            }*/
             Driver driver1 = Driver.of("Ivan");
             session.save(driver1);
             Driver driver2 = Driver.of("John");
             session.save(driver2);
             Car car1 = Car.of("BMW X3", engine1);
-            System.out.println(driver1);
-            System.out.println(driver2);
             car1.addDriver(driver1);
-            System.out.println(car1.getDrivers().size());
             session.save(car1);
             session.getTransaction().commit();
             session.close();

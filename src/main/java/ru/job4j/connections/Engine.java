@@ -4,12 +4,16 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "engine")
+@Table
 public class Engine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    public Engine() {
+    }
+
     public static Engine of(String name) {
         Engine engine = new Engine();
         engine.name = name;
@@ -32,22 +36,17 @@ public class Engine {
         this.name = name;
     }
 
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Engine engine = (Engine) o;
-        return Objects.equals(id, engine.id)
-                && Objects.equals(name, engine.name);
+        return id == engine.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id);
     }
-
 }
