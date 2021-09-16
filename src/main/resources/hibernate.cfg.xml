@@ -35,6 +35,7 @@
         <mapping class="ru.job4j.connections.Car" />
         <mapping class="ru.job4j.connections.Engine" />
         <mapping class="ru.job4j.connections.Driver" />
+        <mapping class="ru.job4j.hql.Candidate" />
 
 
     </session-factory>

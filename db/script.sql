@@ -53,5 +53,12 @@ create table model (
                        brand_id int references brand(id)
 );
 
+create table candidate (
+                       id serial primary key,
+                       name varchar(200),
+                       experience varchar(200),
+                       salary int
+);
+
 
 
