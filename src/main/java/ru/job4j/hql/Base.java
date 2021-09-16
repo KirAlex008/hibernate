@@ -1,23 +1,29 @@
 package ru.job4j.hql;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table
-public class Candidate {
+@Table(name = "base")
+public class Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    private String experience;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Vacancy> vacancies = new ArrayList<>();
 
-    private int salary;
+    public Base() {
+    }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Base base;
+    public void addBook(Vacancy vacancy) {
+        this.vacancies.add(vacancy);
+    }
+
 
     public int getId() {
         return id;
@@ -35,28 +41,8 @@ public class Candidate {
         this.name = name;
     }
 
-    public String getExperience() {
-        return experience;
-    }
-
-    public void setExperience(String experience) {
-        this.experience = experience;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public Base getBase() {
-        return base;
-    }
-
-    public void setBase(Base base) {
-        this.base = base;
+    public List<Vacancy> getVacancies() {
+        return vacancies;
     }
 
     @Override
@@ -67,14 +53,13 @@ public class Candidate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Candidate candidate = (Candidate) o;
-        return id == candidate.id;
+        Base base = (Base) o;
+        return id == base.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
 }
+

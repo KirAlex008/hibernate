@@ -15,8 +15,8 @@ public class Student {
 
     private String city;
 
-    /*@OneToOne(fetch = FetchType.LAZY)
-    private Account account;*/
+    @OneToOne(fetch = FetchType.LAZY)
+    private Account account;
 
     public static Student of(String name, int age, String city) {
         Student student = new Student();
@@ -62,7 +62,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("Student: id=%s, name=%s, age=%s, city=%s", id, name, age, city);
+        return String.format("Student: id=%s, name=%s, age=%s, city=%s, account=%s", id, name, age, city, account);
     }
 
     @Override
@@ -82,13 +82,13 @@ public class Student {
         return Objects.hash(id);
     }
 
-   /* public Account getAccount() {
+    public Account getAccount() {
         return account;
     }
 
     public void setAccount(Account account) {
         this.account = account;
-    }*/
+    }
 
 
 }

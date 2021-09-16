@@ -62,6 +62,13 @@ public class Account {
         this.books = books;
     }
 
+
+
+    @Override
+    public String toString() {
+        return String.format("Account: id=%s, username=%s, active=%s, books=%s", id, username, active, books);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -71,19 +78,11 @@ public class Account {
             return false;
         }
         Account account = (Account) o;
-        return id == account.id
-                && active == account.active
-                && username.equals(account.username)
-                && Objects.equals(books, account.books);
+        return id == account.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, active, books);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Account: id=%s, username=%s, active=%s, books=%s", id, username, active, books);
+        return Objects.hash(id);
     }
 }

@@ -46,6 +46,11 @@ public class Books {
     }
 
     @Override
+    public String toString() {
+        return String.format("Book: id=%s, name=%s, age=%s, publishingHouse=%s", id, name, publishingHouse);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -53,20 +58,13 @@ public class Books {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Books book = (Books) o;
-        return id == book.id
-                && name.equals(book.name)
-                && Objects.equals(publishingHouse, book.publishingHouse);
+        Books books = (Books) o;
+        return id == books.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, publishingHouse);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Book: id=%s, name=%s, age=%s, publishingHouse=%s", id, name, publishingHouse);
+        return Objects.hash(id);
     }
 
     // getters and setters

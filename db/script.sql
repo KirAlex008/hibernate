@@ -60,5 +60,17 @@ create table candidate (
                        salary int
 );
 
+create table base (
+                        id serial primary key,
+                        name varchar(200)
+
+);
+
+create table vacancy (
+                      id serial primary key,
+                      name varchar(200)
+);
+
+
 
 

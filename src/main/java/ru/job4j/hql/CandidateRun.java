@@ -16,12 +16,12 @@ public class CandidateRun {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
-            Candidate one = Candidate.of("John", "advanced", 2000);
+            /*Candidate one = Candidate.of("John", "advanced", 2000);
             Candidate two = Candidate.of("Ian", "expert", 4000);
             Candidate three = Candidate.of("Jackie ", "beginner", 1000);
             session.save(one);
             session.save(two);
-            session.save(three);
+            session.save(three);*/
             Query query = session.createQuery("from Candidate");
             query = session.createQuery("from Candidate c where c.id = :fId")
                     .setParameter("fId", 1);

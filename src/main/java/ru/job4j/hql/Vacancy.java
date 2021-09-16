@@ -4,20 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table
-public class Candidate {
+@Table(name = "vacancy")
+public class Vacancy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
-
-    private String experience;
-
-    private int salary;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private Base base;
 
     public int getId() {
         return id;
@@ -35,30 +28,6 @@ public class Candidate {
         this.name = name;
     }
 
-    public String getExperience() {
-        return experience;
-    }
-
-    public void setExperience(String experience) {
-        this.experience = experience;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public Base getBase() {
-        return base;
-    }
-
-    public void setBase(Base base) {
-        this.base = base;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -67,14 +36,12 @@ public class Candidate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Candidate candidate = (Candidate) o;
-        return id == candidate.id;
+        Vacancy vacancy = (Vacancy) o;
+        return id == vacancy.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
 }
