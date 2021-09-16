@@ -14,11 +14,10 @@ public class Driver {
     public Driver() {
     }
 
-    public static Driver of(String name) {
-        Driver driver = new Driver();
-        driver.name = name;
-        return driver;
+    public Driver(String name) {
+        this.name = name;
     }
+
 
     public Integer getId() {
         return id;

@@ -14,10 +14,8 @@ public class Engine {
     public Engine() {
     }
 
-    public static Engine of(String name) {
-        Engine engine = new Engine();
-        engine.name = name;
-        return engine;
+    public Engine(String name) {
+        this.name = name;
     }
 
     public int getId() {

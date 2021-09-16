@@ -26,6 +26,11 @@ public class Car {
     public Car() {
         }
 
+    public Car(String name, Engine engine) {
+        this.name = name;
+        this.engine = engine;
+    }
+
     public Set<Driver> getDrivers() {
         return drivers;
     }
@@ -34,12 +39,7 @@ public class Car {
         this.drivers.add(d);
     }
 
-    public static Car of(String name, Engine engine) {
-        Car car = new Car();
-        car.name = name;
-        car.engine = engine;
-        return car;
-    }
+
 
     public int getId() {
         return id;

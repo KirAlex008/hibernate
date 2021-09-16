@@ -16,14 +16,14 @@ public class Tester {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
-            Engine engine1 = Engine.of("BMW_V16");
+            Engine engine1 = new Engine("BMW_V16");
             session.save(engine1);
             System.out.println(engine1.getId());
-            Driver driver1 = Driver.of("Ivan");
+            Driver driver1 = new Driver("Ivan");
             session.save(driver1);
-            Driver driver2 = Driver.of("John");
+            Driver driver2 = new Driver("John");
             session.save(driver2);
-            Car car1 = Car.of("BMW X3", engine1);
+            Car car1 = new Car("BMW X3", engine1);
             car1.addDriver(driver1);
             session.save(car1);
             session.getTransaction().commit();
