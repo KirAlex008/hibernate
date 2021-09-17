@@ -16,8 +16,18 @@ public class Candidate {
 
     private int salary;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Base base;
+    /*@OneToOne(fetch = FetchType.LAZY)
+    private Base base;*/
+
+
+    public Candidate(String name, String experience, int salary) {
+        this.name = name;
+        this.experience = experience;
+        this.salary = salary;
+    }
+
+    public Candidate() {
+    }
 
     public int getId() {
         return id;
@@ -51,13 +61,13 @@ public class Candidate {
         this.salary = salary;
     }
 
-    public Base getBase() {
+   /* public Base getBase() {
         return base;
     }
 
     public void setBase(Base base) {
         this.base = base;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -77,4 +87,8 @@ public class Candidate {
     }
 
 
+    @Override
+    public String toString() {
+        return String.format("Candidate: id=%s, name=%s, experience=%s, salary=%s", id, name, experience, salary);
+    }
 }
